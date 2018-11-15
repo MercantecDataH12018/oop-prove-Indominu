@@ -22,6 +22,7 @@ namespace OOPH1Eksamen
     //OPG Tilføj en property for Alder kaldet "age" til den følgende class
     class B
     {
+        public int age;
         public string name = "";
         public int legs = 2;
     }
@@ -29,19 +30,28 @@ namespace OOPH1Eksamen
     //OPG Tilføj en string property kaldet 'brand' til følgende class
     class E
     {
-
+        public string brand;
     }
 
     //OPG Tilføj en metode der kan forstørre 'a' med 1 hver gang den kaldes
     class C
     {
         public int a;
+
+        public void BiggerA(int a)
+        {
+            this.a = a + 1;
+        }
     }
 
     //OPG Tilføj en metode kaldet "getA" der kan returnere værdien i a
     class G
     {
         string a = "Hello!";
+        public string getA()
+        {
+            return a;
+        }
     }
 
     //OPG Tilføj en metode der kan tilføje et tal til numbers. Numbers skal
@@ -49,14 +59,22 @@ namespace OOPH1Eksamen
     class F
     {
         List<int> numbers = new List<int>();
+
+        public void AddNrToList(int nr)
+        {
+            numbers.Add(nr);
+        }
     }
 
     //OPG Implementer encapsulation i denne klasse, men gør således det stadig 
     //er muligt at læse værdierne 'a' og 'b'
     class D
     {
-        public int a;
-        public string b;
+        int a;
+        string b;
+
+        public int ShowA() { return a; }
+        public string Showb() { return b; }
     }
 
     //OPG Lav en constructor der sætter alle properties af følgende klasse
@@ -65,13 +83,20 @@ namespace OOPH1Eksamen
         public int a;
         public string b;
         public double c;
+
+        public A(int a, string b, double c)
+        {
+            this.a = a;
+            this.b = b;
+            this.c = c;
+        }
     }
 
     //OPG klassen H skal have en reference til klasse A, kaldet 'a'. Lav en constructor der
     //sætter denne til reference til et objekt af A
     class H
     {
-        
+        public A a;        
     }
 
     //OPG Ændre funktionen PrintM, således at den ikke crasher programmet hvis den køres.
@@ -80,7 +105,7 @@ namespace OOPH1Eksamen
         public string text;
 
         public void PrintM(){
-            Console.WriteLine("Text is " + text.Length + "long");
+            Console.WriteLine("Text is " + text + "long");
         }
     }
 
@@ -91,7 +116,7 @@ namespace OOPH1Eksamen
         public I i;
 
         public void Invoke() {
-            i.PrintM();
+            if (i != null) { i.PrintM(); }
         }
 
         public J(I i) {
@@ -102,8 +127,8 @@ namespace OOPH1Eksamen
     //OPG Herunder skal du selv implementere en class kaldet MyClass der
     //er subclass til C. Tilføj et public string felt kaldet 'myString'.
 
-    class MyClass {
-        
+    class MyClass : C {
+        public string myString;        
     }
 
 
